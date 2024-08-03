@@ -20,4 +20,9 @@ public interface JuegoJpaRepository extends JpaRepository<JuegoEntity, Long> {
     @Query("SELECT j FROM JuegoEntity j JOIN j.genero g WHERE LOWER(j.nombre) LIKE LOWER(CONCAT('%', :palabra, '%'))")
     Optional<List<JuegoEntity>> getAllJuegosLike(@Param("palabra") String palabra);
 
+    //Trae los juegos que tienen review no nula ni empty string
+    //@Query("SELECT b.juego FROM BibliotecaEntity b WHERE b.review IS NOT NULL AND b.review <> ''")
+    //Optional<List<JuegoEntity>> getJuegosPerReview();
+
+
 }
